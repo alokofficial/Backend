@@ -3,6 +3,8 @@ const app = express()
 const userRouter = require('./routes/user.routes')
 const connectToDB = require('./config/db')
 
+const cookieParser = require('cookie-parser')
+
 connectToDB()
 
 
@@ -10,7 +12,7 @@ connectToDB()
 app.set('view engine', 'ejs')
 
 // app.use(express.static('public'))
-
+app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
