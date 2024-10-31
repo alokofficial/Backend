@@ -25,6 +25,9 @@ app.get('/', (req, res)=>{
     res.render('index')
 })
 
+process.on('uncaughtException', (err)=>{
+    console.log(err)
+})
 
 app.listen(3000, ()=>{
     console.log("server is running on http://localhost:3000")
